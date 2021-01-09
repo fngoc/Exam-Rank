@@ -47,12 +47,12 @@ int ft_printf(const char *format, ...)
                         ++i;
                     }
                 }
-                // if (format[i] == 's')
-                //     ft_print_s(va_arg(ap, char *));
-                // else if (format[i] == 'd')
-                //     ft_print_d(va_arg(ap, int));
-                // else if (format[i] == 'x')
-                //     ft_print_x(va_arg(ap, unsigned int));
+                if (format[i] == 's')
+                     ft_print_s(va_arg(ap, char *));
+                else if (format[i] == 'd')
+                     ft_print_d(va_arg(ap, int));
+                else if (format[i] == 'x')
+                     ft_print_x(va_arg(ap, unsigned int));
             }
         }
         ++i;
