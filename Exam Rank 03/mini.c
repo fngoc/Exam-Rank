@@ -54,12 +54,9 @@ char *get_zone(FILE *file, t_zone *zone)
         return (NULL);
     if (!(array = (char *)malloc(sizeof(char) * (zone->widh * zone->height))))
         return (NULL);
-    i = 0;
-    while (i < (zone->widh * zone->height))
-    {
+    i = -1;
+    while (++i < (zone->widh * zone->height))
         array[i] = zone->background;
-        i++;
-    }
     return (array);
 }
 
@@ -67,8 +64,7 @@ int is_rad(int x, int y, t_list *tmp)
 {
 	float dist;
 
-	dist = sqrtf((x - tmp->x) * (x- tmp->x) + (y - tmp->y) * (y- tmp->y));
-
+	dist = sqrtf((x - tmp->x) * (x - tmp->x) + (y - tmp->y) * (y - tmp->y));
 	if (dist <= tmp->radius)
 	{
 		if ((tmp->radius - dist) < 1.00000000)
@@ -90,8 +86,8 @@ void get_draw(t_list *tmp, t_zone *zone, char *draw)
 		{
 			rad = is_rad((float)x, (float)y, tmp);
 			if ((rad == 2 && tmp->type == 'c') || (rad && tmp->type == 'C'))
-				draw[(y * zone->widh) + x] = tmp->color;
-			++x;
+                draw[(y * zone->widh) + x] = tmp->color;
+            x++;
 		}
 		++y;
 	}
@@ -108,7 +104,7 @@ int drawing(FILE *file, t_zone *zone, char *draw)
 			return (0);
 		get_draw(&tmp, zone, draw);
 	}
-	if (count != (-1))
+	if (count != -1)
 		return (0);
 	return (1);
 }
