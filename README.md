@@ -1,3 +1,3 @@
 # Exam-Rank
 
-Здесь будут появляться задачи и их решения, при подготовки к экзаменам.
+Here you will see tasks and their solutions when preparing for exams.
