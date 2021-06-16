@@ -22,20 +22,6 @@ void error(char *s, char *path)
     exit(1);
 }
 
-char **sub(char **argv, int start, int end)
-{
-    char **res;
-    int i = 0;
-
-    res = malloc(sizeof(char *) * (start - end + 1));
-    if (res == NULL)
-        return(NULL);
-    while (start < end)
-        res[i++] = argv[start++];
-    res[i] = NULL;
-    return(res);
-}
-
 int main(int argc, char **argv, char **env)
 {
     int i, post, start, end;
@@ -47,7 +33,7 @@ int main(int argc, char **argv, char **env)
     while (i < argc)
     {
         post = start = end = i;
-        while (post < start && strcmp(argv[post], ";"))
+        while (post < argc && strcmp(argv[post], ";"))
             ++post;
         fd_in = 0;
         while (start < post)
@@ -72,6 +58,17 @@ int main(int argc, char **argv, char **env)
                 close(fd_in);
                 close(fd[0]);
                 close(fd[1]);
+                if (strcmp(av[0], "cd") == 0)
+                {
+                    if (end - start != 2)
+                        error("error: cd: bad arguments\n", NULL);
+                    if (chdir(av[1]))
+                        error("error: cd: cannot change directory to ", av[1]);
+                }
+                else if (execve(av[0], av, env))
+                    error("error: cannot execute ", av[0]);
+                free(av);
+                exit(0);
             }
         }
     }
