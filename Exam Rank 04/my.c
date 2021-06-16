@@ -22,6 +22,18 @@ void error(char *s, char *path)
     exit(1);
 }
 
+char **sub(char **argv, int start, int end)
+{
+    char **res;
+    int i = 0;
+
+    res = malloc(sizeof(char *) * (end - start + 1));
+    while(start < end)
+        res[i++] = argv[start++];
+    res[i] = NULL;
+    return(res);
+}
+
 int main(int argc, char **argv, char **env)
 {
     int i, post, start, end;
@@ -70,7 +82,19 @@ int main(int argc, char **argv, char **env)
                 free(av);
                 exit(0);
             }
+            else
+            {
+                waitpid(pid, NULL, 0);
+                close(fd[1]);
+                if (fd_in)
+                    close(fd_in);
+                fd_in = fd[0];
+                free(av);
+            }
+            start = end + 1;
         }
+        close(fd_in);
+        i = post + 1;
     }
     return (0);
 }
