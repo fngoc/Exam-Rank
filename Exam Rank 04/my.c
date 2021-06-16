@@ -8,7 +8,7 @@ size_t ft_strlen(char *s)
 
     while (s[i])
         ++i;
-    return(i);
+    return (i);
 }
 
 void error(char *s, char *path)
@@ -28,10 +28,12 @@ char **sub(char **argv, int start, int end)
     int i = 0;
 
     res = malloc(sizeof(char *) * (end - start + 1));
-    while(start < end)
+    if (res == NULL)
+        return(NULL);
+    while (start < end)
         res[i++] = argv[start++];
     res[i] = NULL;
-    return(res);
+    return (res);
 }
 
 int main(int argc, char **argv, char **env)
