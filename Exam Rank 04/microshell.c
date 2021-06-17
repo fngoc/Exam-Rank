@@ -29,7 +29,7 @@ char **sub(char **argv, int start, int end)
 
     res = malloc(sizeof(char *) * (end - start + 1));
     if (res == NULL)
-        return(NULL);
+        return (NULL);
     while (start < end)
         res[i++] = argv[start++];
     res[i] = NULL;
