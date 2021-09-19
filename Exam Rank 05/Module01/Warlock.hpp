@@ -2,6 +2,8 @@
 #define MODULE00_WARLOCK_HPP
 
 #include <iostream>
+#include "ASpell.h"
+#include "ATarget.h"
 
 using std::string;
 using std::cout;
@@ -16,6 +18,8 @@ private:
     Warlock(Warlock const &warlock);
     Warlock& operator=(const Warlock &warlock);
 
+    std::vector<ASpell *> arr;
+
 public:
     ~Warlock();
     Warlock(string name, string title);
@@ -27,6 +31,8 @@ public:
     const string &getTitle() const;
 
     void setTitle(const string &title);
+
+    void learnSpell(ASpell &aSpell);
 };
 
 #endif
