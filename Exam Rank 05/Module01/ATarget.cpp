@@ -1,4 +1,4 @@
-#include "ATarget.h"
+#include "ATarget.hpp"
 
 ATarget::ATarget() { }
 
@@ -13,6 +13,6 @@ ATarget &ATarget::operator=(const ATarget &aTarget) {
 
 const string &ATarget::getType() const { return type; }
 
-ATarget::ATarget(string &type) : type(type) { }
+ATarget::ATarget(string type) : type(type) { }
 
 void ATarget::getHitBySpell(const ASpell &aSpell) const { cout << this->type << " has been " << aSpell.getEffects() << "!" << endl; }

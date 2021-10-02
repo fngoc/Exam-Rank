@@ -1,6 +1,6 @@
-#include "Dummy.h"
+#include "Dummy.hpp"
 
-Dummy::Dummy() : type("Target Practice Dummy") { }
+Dummy::Dummy() : ATarget("Target Practice Dummy") { }
 
 Dummy::~Dummy() { }
 

@@ -1,4 +1,4 @@
-#include "ASpell.h"
+#include "ASpell.hpp"
 
 ASpell::ASpell() { }
 

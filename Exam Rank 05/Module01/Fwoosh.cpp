@@ -1,6 +1,6 @@
-#include "Fwoosh.h"
+#include "Fwoosh.hpp"
 
-Fwoosh::Fwoosh() : name("Fwoosh"), effects("effects") { }
+Fwoosh::Fwoosh() : ASpell("Fwoosh", "effects") { }
 
 Fwoosh::~Fwoosh() { }
 

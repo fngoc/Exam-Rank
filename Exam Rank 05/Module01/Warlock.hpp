@@ -2,8 +2,9 @@
 #define MODULE00_WARLOCK_HPP
 
 #include <iostream>
-#include "ASpell.h"
-#include "ATarget.h"
+#include <vector>
+#include "ASpell.hpp"
+#include "ATarget.hpp"
 
 using std::string;
 using std::cout;
@@ -32,7 +33,9 @@ public:
 
     void setTitle(const string &title);
 
-    void learnSpell(ASpell &aSpell);
+    void learnSpell(ASpell *aSpell);
+    void forgetSpell(string nameSpell);
+    void launchSpell(string nameSpell, ATarget &aTarget);
 };
 
 #endif

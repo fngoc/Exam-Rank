@@ -1,7 +1,7 @@
-#ifndef MODULE01_FWOOSH_H
-#define MODULE01_FWOOSH_H
+#ifndef MODULE01_FWOOSH_HPP
+#define MODULE01_FWOOSH_HPP
 
-#include "ASpell.h"
+#include "ASpell.hpp"
 
 class Fwoosh : public ASpell {
 private:

@@ -1,7 +1,8 @@
-#ifndef MODULE01_ATARGET_H
-#define MODULE01_ATARGET_H
+#ifndef MODULE01_ATARGET_HPP
+#define MODULE01_ATARGET_HPP
 
 #include <iostream>
+#include "ASpell.hpp"
 
 class ASpell;
 
@@ -12,8 +13,6 @@ using std::endl;
 class ATarget {
 private:
     string type;
-public:
-    const string &getType() const;
 
 public:
     ATarget();
@@ -21,12 +20,13 @@ public:
     ATarget(ATarget const &aTarget);
     ATarget& operator=(const ATarget &aTarget);
 
-    ATarget(string &type);
+    ATarget(string type);
 
     void getHitBySpell(const ASpell& aSpell) const;
 
     virtual ATarget *clone() const = 0;
-};
 
+    const string &getType() const;
+};
 
 #endif

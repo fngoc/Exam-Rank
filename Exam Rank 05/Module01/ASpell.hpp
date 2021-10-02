@@ -1,8 +1,10 @@
-#ifndef MODULE01_ASPELL_H
-#define MODULE01_ASPELL_H
+#ifndef MODULE01_ASPELL_HPP
+#define MODULE01_ASPELL_HPP
 
 #include <iostream>
-#include "ATarget.h"
+#include "ATarget.hpp"
+
+class ATarget;
 
 using std::string;
 using std::cout;

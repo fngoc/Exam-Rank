@@ -1,7 +1,7 @@
-#ifndef MODULE01_DUMMY_H
-#define MODULE01_DUMMY_H
+#ifndef MODULE01_DUMMY_HPP
+#define MODULE01_DUMMY_HPP
 
-#include "ATarget.h"
+#include "ATarget.hpp"
 
 class Dummy : public ATarget {
 private:
@@ -12,8 +12,6 @@ public:
     ~Dummy();
 
     virtual ATarget * clone() const;
-
 };
-
 
 #endif

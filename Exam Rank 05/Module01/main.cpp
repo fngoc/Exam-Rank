@@ -1,4 +1,7 @@
 #include "Warlock.hpp"
+#include "ASpell.hpp"
+#include "Dummy.hpp"
+#include "Fwoosh.hpp"
 
 int main()
 {
