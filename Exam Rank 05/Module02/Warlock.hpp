@@ -5,21 +5,22 @@
 #include <vector>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
+#include "SpellBook.hpp"
 
 using std::string;
 using std::cout;
 using std::endl;
+using std::vector;
 
 class Warlock {
 private:
     string name;
     string title;
+    SpellBook spellBook;
 
     Warlock();
-    Warlock(Warlock const &warlock);
+    Warlock(const Warlock &warlock);
     Warlock& operator=(const Warlock &warlock);
-
-    std::vector<ASpell *> arr;
 
 public:
     ~Warlock();
@@ -28,9 +29,7 @@ public:
     void introduce() const;
 
     const string &getName() const;
-
     const string &getTitle() const;
-
     void setTitle(const string &title);
 
     void learnSpell(ASpell *aSpell);

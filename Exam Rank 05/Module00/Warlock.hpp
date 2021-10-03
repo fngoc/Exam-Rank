@@ -23,9 +23,7 @@ public:
     void introduce() const;
 
     const string &getName() const;
-
     const string &getTitle() const;
-
     void setTitle(const string &title);
 };
 

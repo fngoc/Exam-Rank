@@ -9,17 +9,17 @@
 using std::string;
 using std::cout;
 using std::endl;
+using std::vector;
 
 class Warlock {
 private:
     string name;
     string title;
+    vector<ASpell *> arr;
 
     Warlock();
     Warlock(Warlock const &warlock);
     Warlock& operator=(const Warlock &warlock);
-
-    std::vector<ASpell *> arr;
 
 public:
     ~Warlock();
@@ -28,9 +28,7 @@ public:
     void introduce() const;
 
     const string &getName() const;
-
     const string &getTitle() const;
-
     void setTitle(const string &title);
 
     void learnSpell(ASpell *aSpell);

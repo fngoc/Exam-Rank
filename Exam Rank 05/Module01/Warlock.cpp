@@ -1,10 +1,21 @@
 #include "Warlock.hpp"
 
-Warlock::~Warlock() { cout << name << ": " << "My job here is done!" << endl; }
+Warlock::~Warlock() {
+    cout << name << ": " << "My job here is done!" << endl;
+    vector<ASpell *>::iterator it_begin = this->arr.begin();
+    vector<ASpell *>::iterator it_end = this->arr.end();
+
+    while (it_begin != it_end)
+    {
+        delete (*it_begin);
+        ++it_begin;
+    }
+    this->arr.clear();
+}
 
 Warlock::Warlock(string name, string title) : name(name), title(title) { cout << name << ": " << "This looks like another boring day." << endl; }
 
-void Warlock::introduce() const { cout << this->name << ": " << "I am " << this->name << "," << this->title << "!" << endl; }
+void Warlock::introduce() const { cout << this->name << ": " << "I am " << this->name << ", " << this->title << "!" << endl; }
 
 const string &Warlock::getName() const { return name; }
 
@@ -13,8 +24,8 @@ const string &Warlock::getTitle() const { return title; }
 void Warlock::setTitle(const string &title) { Warlock::title = title; }
 
 void Warlock::learnSpell(ASpell *aSpell) {
-    std::vector<ASpell *>::iterator it_begin = this->arr.begin();
-    std::vector<ASpell *>::iterator it_end = this->arr.end();
+    vector<ASpell *>::iterator it_begin = this->arr.begin();
+    vector<ASpell *>::iterator it_end = this->arr.end();
 
     if (aSpell)
     {
@@ -29,8 +40,8 @@ void Warlock::learnSpell(ASpell *aSpell) {
 }
 
 void Warlock::forgetSpell(string nameSpell) {
-    std::vector<ASpell *>::iterator it_begin = this->arr.begin();
-    std::vector<ASpell *>::iterator it_end = this->arr.end();
+    vector<ASpell *>::iterator it_begin = this->arr.begin();
+    vector<ASpell *>::iterator it_end = this->arr.end();
 
     while (it_begin != it_end)
     {
@@ -45,8 +56,8 @@ void Warlock::forgetSpell(string nameSpell) {
 }
 
 void Warlock::launchSpell(string nameSpell, ATarget &aTarget) {
-    std::vector<ASpell *>::iterator it_begin = this->arr.begin();
-    std::vector<ASpell *>::iterator it_end = this->arr.end();
+    vector<ASpell *>::iterator it_begin = this->arr.begin();
+    vector<ASpell *>::iterator it_end = this->arr.end();
 
     while (it_begin != it_end)
     {
