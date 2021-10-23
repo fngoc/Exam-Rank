@@ -1,17 +1,6 @@
 #include "Warlock.hpp"
 
-Warlock::~Warlock() {
-    cout << name << ": " << "My job here is done!" << endl;
-    vector<ASpell *>::iterator it_begin = this->arr.begin();
-    vector<ASpell *>::iterator it_end = this->arr.end();
-
-    while (it_begin != it_end)
-    {
-        delete (*it_begin);
-        ++it_begin;
-    }
-    this->arr.clear();
-}
+Warlock::~Warlock() { cout << name << ": " << "My job here is done!" << endl; }
 
 Warlock::Warlock(string name, string title) : name(name), title(title) { cout << name << ": " << "This looks like another boring day." << endl; }
 

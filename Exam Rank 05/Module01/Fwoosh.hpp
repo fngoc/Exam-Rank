@@ -13,7 +13,6 @@ public:
     ~Fwoosh();
 
     virtual ASpell * clone() const;
-
 };
 
 

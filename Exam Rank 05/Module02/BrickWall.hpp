@@ -12,6 +12,6 @@ public:
     ~BrickWall();
 
     virtual ATarget * clone() const;
-};;
+};
 
 #endif

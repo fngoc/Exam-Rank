@@ -2,17 +2,7 @@
 
 TargetGenerator::TargetGenerator() { }
 
-TargetGenerator::~TargetGenerator() {
-    vector<ATarget *>::iterator it_begin = this->arr.begin();
-    vector<ATarget *>::iterator it_end = this->arr.end();
-
-    while (it_begin != it_end)
-    {
-        delete (*it_begin);
-        ++it_begin;
-    }
-    this->arr.clear();
-}
+TargetGenerator::~TargetGenerator() { }
 
 void TargetGenerator::learnTargetType(ATarget *aTarget) {
     vector<ATarget *>::iterator it_begin = this->arr.begin();
